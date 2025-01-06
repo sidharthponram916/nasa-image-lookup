@@ -44,6 +44,8 @@ const LandingPage = () => {
         } catch (e) {
           console.log("There was an error!");
         }
+      } else {
+        setErrorMessage("Invalid input, please try again.");
       }
     } else {
       setErrorMessage("Invalid input, please try again.");
@@ -83,7 +85,6 @@ const LandingPage = () => {
       </div>
 
       <div>
-        {" "}
         {errorMessage != "" ? (
           <div className="bg-red-500 p-2 text-white mt-5 text-sm rounded">
             {errorMessage}
