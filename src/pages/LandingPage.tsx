@@ -4,10 +4,10 @@ import { useNavigate } from "react-router-dom";
 const LandingPage = () => {
   const navigate = useNavigate();
 
-  const [errorMessage, setErrorMessage] = useState("");
-  const [query, setQuery] = useState("");
-  const [from, setFrom] = useState(1920);
-  const [to, setTo] = useState(2024);
+  const [errorMessage, setErrorMessage] = useState<string>("");
+  const [query, setQuery] = useState<string>("");
+  const [from, setFrom] = useState<number>(1920);
+  const [to, setTo] = useState<number>(2024);
 
   const handleQuery = (e: any) => {
     setQuery(e.target.value);
@@ -22,7 +22,7 @@ const LandingPage = () => {
   };
 
   const handleEvent = async () => {
-    if (query.trim() != "") {
+    if (query?.trim() != "") {
       if (
         Number(from) >= 1920 &&
         Number(from) <= 2024 &&

@@ -9,7 +9,7 @@ const DisplayPage = () => {
 
   const { data } = location.state;
 
-  const [pageNumber, setPageNumber] = useState(0);
+  const [pageNumber, setPageNumber] = useState<number>(0);
 
   const incrementPage = () => {
     setPageNumber((i) => (i == data.collection.items.length - 1 ? i : i + 1));
@@ -23,12 +23,10 @@ const DisplayPage = () => {
     navigate("/");
   };
 
-  let item = data.collection.items[pageNumber];
+  const item = data.collection.items[pageNumber];
 
-  let info = {
-    imageURL:
-      item?.links[0]?.href ||
-      "https://as2.ftcdn.net/v2/jpg/04/99/93/31/1000_F_499933117_ZAUBfv3P1HEOsZDrnkbNCt4jc3AodArl.jpg",
+  const info = {
+    imageURL: item.links[0].href,
     title: item.data[0].title,
     dateCreated: moment(item.data[0].date_created).format("MMMM Do YYYY"),
     description: item.data[0].description,
